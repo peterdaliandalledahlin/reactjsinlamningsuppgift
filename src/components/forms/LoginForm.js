@@ -3,8 +3,6 @@ import lang from '../languages/e-us'
 import { TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
-
-
 class LoginForm extends Component {
 
     render() {
@@ -33,6 +31,5 @@ class LoginForm extends Component {
         )
     }
 }
-
 
 export default LoginForm;

@@ -4,7 +4,7 @@ const initialState = {
     errorMessage: null,
     currentUser: null,
     isLoggedIn: false,
-    customer: false
+    customer: null
 }
 
 export default initialState

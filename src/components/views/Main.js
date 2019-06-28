@@ -6,10 +6,9 @@ import Register from './Register'
 import Profile from './Profile'
 import RegisterCustomer from './RegisterCustomer';
 import CustomerInfo from './CustomerInfo'
-import CustomerIssueForm from '../forms/CustomerIssueForm';
+import CustomerIssues from '../views/CustomerIssues';
 
 class Main extends Component {
-
 
     render() {
         return(
@@ -21,7 +20,7 @@ class Main extends Component {
                     <Route path='/profile' component={ Profile } />
                     <Route path="/registercustomer" component={  RegisterCustomer } />
                     <Route path='/customerinfo' component={ CustomerInfo } />
-                    <Route path='/customerissueform' component={ CustomerIssueForm } />
+                    <Route path='/customerissues' component={ CustomerIssues } />
                 </Switch>
             </main>   
         )

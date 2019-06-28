@@ -21,3 +21,8 @@ img {
 #login_table {
     width: 30%;
 }
+
+.tableheader {
+    font-size: 3rem;
+    font-style: bold;
+}

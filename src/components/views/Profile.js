@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+//import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+//import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 import { get, update, logout } from '../../store/actions/authActions'
 import EditProfileForm from '../forms/EditProfileForm'
@@ -66,6 +74,8 @@ class Profile extends Component {
         this.setState({ isLoggedIn: false })
     } 
 
+
+
     render() {
 
         if(localStorage.getItem('ACCESS_TOKEN') === null) {
@@ -80,40 +90,43 @@ class Profile extends Component {
             )            
         }
 
+
+
         return(
             <div className="container mt-5">
                 <form>
-                    <button type="button" className="btn btn-primary btn-sm px-2 mb-5 " onClick={this.toggleEdit}>Ändra</button>
-                    <button type="button" className="btn btn-primary btn-sm px-2 ml-3 mb-5 " onClick={this.logout}>Logga ut</button>
-
-                    <table className="table table-striped">
-                        <tbody>
-                            <tr>
-                                <th>Förnamn</th><th>Mellannamn</th><th>Efternamn</th>
-                            </tr>
-                            <tr>
-                                <td>{this.props.currentUser.firstname}</td><td>{this.props.currentUser.middlename}</td><td>{this.props.currentUser.lastname}</td>
-                            </tr>
-                            <tr>
-                                <th>Födelsedag</th><th>E-post</th><th>Lösenord</th>
-                            </tr>
-                            <tr>
-                                <td>{this.props.currentUser.birthday}</td><td>{this.props.currentUser.email}</td><td>****</td>
-                            </tr>
-                            <tr>
-                                <th>Adress</th><th></th><th></th>
-                            </tr>
-                            <tr>
-                                <td>{this.props.currentUser.addressline}</td>
-                            </tr>
-                            <tr>
-                                <th>Postnummer</th><th>Ort</th><th>Land</th>
-                            </tr>
-                            <tr>
-                                <td>{this.props.currentUser.zipcode}</td><td>{this.props.currentUser.city}</td><td>{this.props.currentUser.country}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <Button type="button" variant="contained" className="px-2 mb-5 " onClick={this.toggleEdit}>Ändra</Button>
+                    <Button type="button" variant="contained" className="px-2 ml-3 mb-5 " onClick={this.logout}>Logga ut</Button>
+                    <Paper>
+                    <Table>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell className="font-weight-bold">Förnamn</TableCell><TableCell className="font-weight-bold">Mellannamn</TableCell><TableCell className="font-weight-bold">Efternamn</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>{this.props.currentUser.firstname}</TableCell><TableCell>{this.props.currentUser.middlename}</TableCell><TableCell>{this.props.currentUser.lastname}</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className="font-weight-bold">Födelsedag</TableCell><TableCell className="font-weight-bold">E-post</TableCell><TableCell className="font-weight-bold">Lösenord</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>{this.props.currentUser.birthday}</TableCell><TableCell>{this.props.currentUser.email}</TableCell><TableCell>****</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className="font-weight-bold">Adress</TableCell><TableCell></TableCell><TableCell></TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>{this.props.currentUser.addressline}</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className="font-weight-bold">Postnummer</TableCell><TableCell className="font-weight-bold">Ort</TableCell><TableCell className="font-weight-bold">Land</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell>{this.props.currentUser.zipcode}</TableCell><TableCell>{this.props.currentUser.city}</TableCell><TableCell>{this.props.currentUser.country}</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                    </Paper>
                 </form>
             </div>        
         )
