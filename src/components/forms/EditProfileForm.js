@@ -10,12 +10,9 @@ import Button from '@material-ui/core/Button';
 
 class EditProfileForm extends Component {
 
-
-
     componentDidMount() {
         this.inputPassword.value = "";
     }
-    // ref={el => this.inputPassword = el}
 
     render() {
         return(
@@ -45,7 +42,7 @@ class EditProfileForm extends Component {
 
                                     {/* <td><input type="text" id="birthday" className="form-control" value={this.props.currentUser.birthday} onChange={this.props.onChange} /></td>
                                     <td><input type="email" id="email" className="form-control" value={this.props.currentUser.email} onChange={this.props.onChange} /></td> */}
-                                    <TableCell><input ref={el => this.inputPassword = el} type="password" id="password" className="form-control" value={this.props.currentUser.password} onChange={this.props.onChange} /></TableCell>
+                                    <TableCell><input ref={el => this.inputPassword = el} type="password" id="password" className="form-control" placeholder="Du MÅSTE ange ditt gamla eller ett nytt lösenord" value={this.props.currentUser.password} onChange={this.props.onChange} /></TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell className="font-weight-bold">Adress</TableCell><TableCell></TableCell><TableCell></TableCell>
@@ -68,7 +65,6 @@ class EditProfileForm extends Component {
                             </TableBody>
                         </Table>
                     </Paper>
-
                     <Button type="submit" variant="contained" onClick={this.props.saveEdit}>Spara</Button>
                     <Button type="reset" variant="contained" color="secondary" className="ml-3 px-2" onClick={this.props.cancelEdit}>Avbryt</Button>
 
