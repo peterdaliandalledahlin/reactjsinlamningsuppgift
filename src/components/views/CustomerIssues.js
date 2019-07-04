@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-//import CustomerIssueData from '../forms/CustomerIssueData'
 import http from 'axios'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -14,6 +13,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+//import Modal from './Modal'
 
     const ColoredLine = ({ color }) => (
         <hr
@@ -72,11 +72,53 @@ class CustomerIssues extends Component {
     }
 
     render() {
+
+
         const { searchcustomeremail, customer, issues, allcustomers } = this.state
         return(
             <div className="container">
 
+                {/* <Modal /> */}
+
+                <Button id="customerindexbutton" className="mt-5" variant="contained"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Slå upp e-post i kunddatabasen
+                </Button>
+
+                <div className="collapse" id="collapseExample">
+                    <div className="card card-body">
                     <Paper>
+                        <Table>
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell className="font-weight-bold">Förnamn</TableCell>
+                                    <TableCell className="font-weight-bold">Efternamn</TableCell>
+                                    <TableCell className="font-weight-bold">E-post</TableCell>
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+                    </Paper>
+                        {allcustomers.length ? allcustomers.map( (allcustomer) => <div key={allcustomer._id}>
+                            <Paper>
+                                <List component="nav" aria-label="Customers">
+                                    <ListItem button>
+                                        <ListItemIcon>
+                                            <Icon>portrait</Icon>
+                                        </ListItemIcon>
+                                        <ListItemText className="smal" primary={allcustomer.firstname} />
+                                        <ListItemText primary={allcustomer.lastname} />
+                                        <ListItemIcon>
+                                            <Icon>email</Icon>
+                                        </ListItemIcon>
+                                        <ListItemText primary={allcustomer.email} />
+                                    </ListItem>
+                                </List>
+                            </Paper>
+                        </div>) : null
+                        }
+                    </div>
+                </div>
+
+                    {/* <Paper>
                         <Table>
                             <TableBody>
                                 <TableRow>
@@ -88,7 +130,6 @@ class CustomerIssues extends Component {
                             </TableBody>
                         </Table>
                     </Paper>
-
                 {allcustomers.length ? allcustomers.map( (allcustomer) => <div key={allcustomer._id}>
                     <Paper>
                         <List component="nav" aria-label="Customers">
@@ -100,21 +141,11 @@ class CustomerIssues extends Component {
                             </ListItem>
                         </List>
                     </Paper>
-
-                    {/* <Paper>
-                        <Table>
-                            <TableBody>
-                                <TableRow>
-                                    <TableCell>{allcustomer.firstname}</TableCell><TableCell>{allcustomer.lastname}</TableCell><TableCell>{allcustomer.email}</TableCell>
-                                </TableRow>
-                            </TableBody>
-                        </Table>
-                    </Paper> */}
             </div>) : null
-                }
+                } */}
 
                 <form className="mt-5 mb-5" onSubmit={this.handleSubmit}>
-                <InputLabel className="mb-3" htmlFor="searchcustomeremail">Här kan du söka efter kundärenden via e-postadress</InputLabel>
+                <InputLabel className="mb-3" htmlFor="searchcustomeremail">Här kan du söka efter kundärenden via kundens e-postadress</InputLabel>
                     <Icon>search</Icon><TextField type="text" id="searchcustomeremail" value={searchcustomeremail} onChange={this.handleChange} />
                     <Button className="ml-3" type="submit" variant="contained">Sök</Button>
                 </form>
@@ -190,7 +221,7 @@ class CustomerIssues extends Component {
                                     <TableCell>{issue.status}</TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell><form method='POST' action={`http://localhost:3001/api/customerissues/${issue.id}?_method=DELETE&taskId=${issue._id}`}><Button className="btn button--tasks" >Delete</Button></form></TableCell>
+                                    <TableCell><form method='POST' action={`http://localhost:3001/api/customerissues/${issue._id}?_method=DELETE&taskId=${issue._id}`}><Button className="btn button--tasks" >Delete</Button></form></TableCell>
                                 </TableRow>
                             </TableBody>
                         </Table>

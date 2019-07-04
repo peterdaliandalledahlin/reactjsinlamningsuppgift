@@ -75,11 +75,14 @@ class RegisterCustomer extends Component {
                             <TableRow>
                                 <TableCell><TextField type="email" id="email" label="E-post" placeholder="E-post" value={email} onChange={this.handleChange} /></TableCell>
                                 <TableCell><TextField type="text" id="phone" label="Telefon" placeholder="Telefon" value={phone} onChange={this.handleChange} /></TableCell>
+                                <TableCell></TableCell>
                                 {/* <td><input type="email" id="email" className="form-control" placeholder="E-post" value={email} onChange={this.handleChange} /></td>
                                 <td><input type="text" id="phone" className="form-control" placeholder="Telefonnummer" value={phone} onChange={this.handleChange} /></td> */}
                             </TableRow>
                             <TableRow>
                                 <TableCell colSpan="2"><TextField type="text" id="addressline" label="Adress" placeholder="Adress" value={addressline} onChange={this.handleChange} /></TableCell>
+                                <TableCell></TableCell>
+                                <TableCell></TableCell>
                                 {/* <td colSpan="2"><input type="text" id="addressline" className="form-control" placeholder="Adress" value={addressline} onChange={this.handleChange} /></td> */}
                             </TableRow>
                             <TableRow>
@@ -119,7 +122,7 @@ class RegisterCustomer extends Component {
                     </Table>
                 </Paper>
 
-                <Button type="submit" variant="contained">Registrera</Button>
+                <Button type="submit" variant="contained" className="mt-3">Registrera</Button>
             </form>
         </div>
             

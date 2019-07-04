@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-
-
 class Customer extends Component {
 
         constructor(props) {
@@ -12,12 +10,7 @@ class Customer extends Component {
             }
         }
 
-   
-
     render() {
-
-           
-
 
         return(
             <div className="container mt-5">

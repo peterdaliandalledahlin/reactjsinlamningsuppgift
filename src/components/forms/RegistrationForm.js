@@ -76,8 +76,10 @@ import Paper from '@material-ui/core/Paper';
                                     <td><input type="email" className="form-control" id="email" placeholder="E-post" value={email} onChange={this.handleChange} /></td>
                                     <td><input type="password" className="form-control" id="password" placeholder="Lösenord" value={password} onChange={this.handleChange} /></td> */}
                                 </TableRow>
-                                    <TableRow>
+                                <TableRow>
                                     <TableCell><TextField type="text" id="addressline" label="Adress" placeholder="Adress" value={addressline} onChange={this.handleChange}/></TableCell>
+                                    <TableCell></TableCell>
+                                    <TableCell></TableCell>
                                     {/* <td colSpan="2"><input type="text" className="form-control" id="addressline" placeholder="Ange din adress" value={addressline} onChange={this.handleChange} /></td> */}
                                 </TableRow>
                                 <TableRow>
@@ -114,7 +116,7 @@ import Paper from '@material-ui/core/Paper';
                         </Table>
                     </Paper>
 
-                <Button type="submit" variant="contained">Sign Up</Button>
+                <Button type="submit" variant="contained" className="mt-3">Sign Up</Button>
             </form>
         </div>
             

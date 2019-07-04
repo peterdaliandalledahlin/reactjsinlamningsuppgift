@@ -102,15 +102,6 @@ class CustomerIssue extends Component {
                                 <TableRow>
                                     <TableCell>{customer.zipcode}</TableCell><TableCell>{customer.city}</TableCell><TableCell>{customer.country}</TableCell>
                                 </TableRow>
-                                {/* <tr>
-                                    <th>Ämne</th><th>Beskrivning</th><th>Status</th>
-                                </tr>
-                                <tr>
-                                    <td>{customer.issues.subject}</td><td>{customer.issues.description}</td><td>{customer.issues.status}</td>
-                                </tr> */}
-                                {/* <tr>
-                                    <td><NavLink to="/customerissueform" type="button"  className="btn btn-primary">Registrera ärende</NavLink></td>
-                                </tr> */}
                             </TableBody>
                         </Table>
                     </Paper>
